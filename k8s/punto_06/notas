@@ -1,0 +1,30 @@
+//creando pod
+kubectl apply -n name1 -f k8s/punto_06/a_pod-bd.yaml
+kubectl get pods -n name1
+//b Creación del clusterIP para exponer la BD
+kubectl apply -n name1 -f k8s/punto_06/b_service_ClusterIP.yaml
+kubectl get svc -n name1
+//c. Creación del ConfigMap
+kubectl apply -n name1 -f k8s/punto_06/c_configMap.yaml
+kubectl get cm -n name1
+//d. Creación del ReplicaSet
+kubectl apply -n name1 -f k8s/punto_06/d_replicaSet.yaml
+kubectl get rs -n name1
+//e. Creación del ClusterIP para exponer el api-persona
+kubectl apply -n name1 -f k8s/punto_06/e_service_ClusterIP.yaml
+kubectl get svc -n name1
+//f. Probando consultas
+kubectl apply -f k8s/pod-curl.yaml
+apt-get update
+apt-get install curl
+kubectl exec -it stack-curl bash
+//crear
+curl -X POST -H "Content-Type: application/json" -d '{"nombre":"john", "edad":27, "sexo":"M"}' http://cip-api-persona.name1.svc.cluster.local:8080/api/personas/registrar
+//listar
+curl -X GET http://cip-api-persona.name1.svc.cluster.local:8080/api/personas/listar
+//buscar
+curl -X GET http://cip-api-persona.name1.svc.cluster.local:8080/api/personas/find/5
+//rango de edad
+curl -X GET http://cip-api-persona.name1.svc.cluster.local:8080/api/personas/rango/30/40
+//eliminar
+curl -X DELETE http://cip-api-persona.name1.svc.cluster.local:8080/api/personas/eliminar/5

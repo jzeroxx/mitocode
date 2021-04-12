@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-properties-api-persona
+  namespace: name1
+data:
+  host: "cip-api-bd.name1.svc.cluster.local"
+  port: "3306"
+  database: "demobd"
+  username: "root"
+  password: "toor"

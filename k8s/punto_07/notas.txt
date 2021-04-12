@@ -1,0 +1,16 @@
+// 7. 	
+a. Crear pod de bd en ns name2 en un stateful
+kubectl apply -n name2 -f k8s/punto_07/a_statefulset-bd.yaml
+kubectl get pods -n name2
+b. Creando el service headless
+kubectl apply -n name2 -f k8s/punto_07/b_svc-headless.yaml
+kubectl get svc -n name2
+c. Creando el secreto de las credenciales para la api-persona
+kubectl apply -n name2 -f k8s/punto_07/c_secret.yaml
+kubectl get secrets -n name2
+d. Creando el deployment con el secrets para api persona
+kubectl apply -n name2 -f k8s/punto_07/d_deployment.yaml
+kubectl get pods -n name2
+e. Creando el service de tipo LoadBalancer
+kubectl apply -n name2 -f k8s/punto_07/e_loadBalancer.yaml
+kubectl get svc -n name2

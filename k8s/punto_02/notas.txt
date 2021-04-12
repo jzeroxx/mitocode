@@ -1,0 +1,10 @@
+// 2. Creación del cluster
+gcloud services enable container.googleapis.com //opcional para habilitar la creación de cluster ("Failed precondition when calling the ServiceConsumerManager" - "should enable service:container.googleapis.com before generating a service account")
+
+gcloud auth login
+
+gcloud config set project proyecto-final-mitocode
+
+gcloud config set compute/zone us-west1-a
+
+gcloud container clusters create cluster-mitocode --num-nodes=3

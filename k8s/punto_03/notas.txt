@@ -1,0 +1,2 @@
+kubectl apply -f k8s/punto_03/1-pod-app-persona-bd.yaml
+kubectl get pods -o wide

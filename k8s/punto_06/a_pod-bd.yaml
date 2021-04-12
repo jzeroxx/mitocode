@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stack-bd
+  labels:
+    app: api-bd
+    version: v1
+spec:
+  containers:   
+   - name: bd
+     image: jcontrerasp/img-base-de-datos
+     ports:
+        - containerPort: 3306
+  restartPolicy: OnFailure

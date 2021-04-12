@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-api-persona
+spec:
+  selector:
+    matchLabels:
+      app: api-persona
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: api-persona
+    spec:
+      containers:
+      - image: jcontrerasp/img-api-persona
+        name: api-persona
+        envFrom:
+        - secretRef:
+            name: secret-properties-api-persona
+        ports:
+        - containerPort: 8080
+          protocol: TCP

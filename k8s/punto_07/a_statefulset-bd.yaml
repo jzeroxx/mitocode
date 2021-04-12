@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts-bd
+  labels:
+    app: sts-bd
+spec:
+  selector:
+    matchLabels:
+      app: sts-bd
+  replicas: 1
+  serviceName: "sts-bd"
+  template: 
+    metadata:
+      labels:
+        app: sts-bd
+    spec:
+      containers:
+        - name: bd
+          image: jcontrerasp/img-base-de-datos
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+          - name: pvc-sts-data
+            mountPath: /var/lib/mysql --user 1000
+  volumeClaimTemplates:
+  - metadata:
+      name: pvc-sts-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

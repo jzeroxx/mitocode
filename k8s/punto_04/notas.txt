@@ -1,0 +1,13 @@
+kubectl exec -it stack-api-persona -c bd bash
+apt-get update
+apt-get install curl
+//probando método crear
+curl -X POST -H "Content-Type: application/json" -d '{"nombre":"john", "edad":28, "sexo":"M"}' http://localhost:8080/api/personas/registrar
+//probando método listar
+curl -X GET http://localhost:8080/api/personas/listar
+//probando método buscar
+curl -X GET http://localhost:8080/api/personas/find/5
+//probando método rango de edad
+curl -X GET http://localhost:8080/api/personas/rango/30/40
+//probando método eliminar
+curl -X DELETE http://localhost:8080/api/personas/eliminar/5

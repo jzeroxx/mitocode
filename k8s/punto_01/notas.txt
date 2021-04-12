@@ -1,0 +1,9 @@
+// 1. Registro en el Registry
+cd k8s/punto_01/api-persona
+docker build -t jcontrerasp/img-api-persona .
+cd ../basedatos
+docker build -t jcontrerasp/img-base-de-datos .
+docker images
+docker login
+docker push jcontrerasp/img-api-persona
+docker push jcontrerasp/img-base-de-datos

@@ -1,0 +1,13 @@
+apiVersion: v1 #versión
+kind: Service #tipo de componente
+metadata:
+  name: cip-api-bd #nombre del cluster
+spec:
+  type: ClusterIP
+  selector: #Busca todas los pods con los siguientes criterios para exponerlos
+    app: api-bd # busca por label app con valor api-bd
+  ports:
+  - protocol: TCP
+    port: 3306 #Puerto a exponer
+    targetPort: 3306 #puertos que usan los pods
+

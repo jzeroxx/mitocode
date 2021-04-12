@@ -1,0 +1,4 @@
+// 5. Crear dos Namespaces llamados name1 y name2
+kubectl create ns name1
+kubectl create ns name2
+kubectl get ns

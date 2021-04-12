@@ -1,0 +1,75 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MitoCode_K8S",
+		"_postman_id": "dd3d9e2f-b812-d2c4-c081-ea62d1db0685",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Crear",
+			"request": {
+				"url": "http://35.233.159.75:8080/api/personas/registrar",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"john\",\r\n    \"edad\": 28,\r\n    \"sexo\": \"M\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "02_Listar",
+			"request": {
+				"url": "http://35.233.159.75:8080/api/personas/listar",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "03_Buscar",
+			"request": {
+				"url": "http://35.233.159.75:8080/api/personas/find/5",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "04_Rango_edad",
+			"request": {
+				"url": "http://35.233.159.75:8080/api/personas/rango/30/40",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "05_Eliminar",
+			"request": {
+				"url": "http://35.233.159.75:8080/api/personas/rango/30/40",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
